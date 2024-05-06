@@ -1,0 +1,22 @@
+C:\Users\Ryu\source\repos\Voting system\Voting system\bin\x64\Debug\Voting system.exe.config
+C:\Users\Ryu\source\repos\Voting system\Voting system\bin\x64\Debug\Voting system.exe
+C:\Users\Ryu\source\repos\Voting system\Voting system\bin\x64\Debug\Voting system.pdb
+C:\Users\Ryu\source\repos\Voting system\Voting system\bin\x64\Debug\AlphaBlendTextBox.dll
+C:\Users\Ryu\source\repos\Voting system\Voting system\bin\x64\Debug\ComponentFactory.Krypton.Docking.dll
+C:\Users\Ryu\source\repos\Voting system\Voting system\bin\x64\Debug\ComponentFactory.Krypton.Navigator.dll
+C:\Users\Ryu\source\repos\Voting system\Voting system\bin\x64\Debug\ComponentFactory.Krypton.Ribbon.dll
+C:\Users\Ryu\source\repos\Voting system\Voting system\bin\x64\Debug\ComponentFactory.Krypton.Toolkit.dll
+C:\Users\Ryu\source\repos\Voting system\Voting system\bin\x64\Debug\ComponentFactory.Krypton.Workspace.dll
+C:\Users\Ryu\source\repos\Voting system\Voting system\bin\x64\Debug\MaterialSkin.dll
+C:\Users\Ryu\source\repos\Voting system\Voting system\bin\x64\Debug\ComponentFactory.Krypton.Docking.pdb
+C:\Users\Ryu\source\repos\Voting system\Voting system\bin\x64\Debug\ComponentFactory.Krypton.Navigator.pdb
+C:\Users\Ryu\source\repos\Voting system\Voting system\bin\x64\Debug\ComponentFactory.Krypton.Ribbon.pdb
+C:\Users\Ryu\source\repos\Voting system\Voting system\bin\x64\Debug\ComponentFactory.Krypton.Toolkit.pdb
+C:\Users\Ryu\source\repos\Voting system\Voting system\bin\x64\Debug\ComponentFactory.Krypton.Workspace.pdb
+C:\Users\Ryu\source\repos\Voting system\Voting system\obj\x64\Debug\Voting_system.Lyceum.resources
+C:\Users\Ryu\source\repos\Voting system\Voting system\obj\x64\Debug\Voting_system.Properties.Resources.resources
+C:\Users\Ryu\source\repos\Voting system\Voting system\obj\x64\Debug\Voting system.csproj.GenerateResource.cache
+C:\Users\Ryu\source\repos\Voting system\Voting system\obj\x64\Debug\Voting system.csproj.CoreCompileInputs.cache
+C:\Users\Ryu\source\repos\Voting system\Voting system\obj\x64\Debug\Voting system.csproj.CopyComplete
+C:\Users\Ryu\source\repos\Voting system\Voting system\obj\x64\Debug\Voting system.exe
+C:\Users\Ryu\source\repos\Voting system\Voting system\obj\x64\Debug\Voting system.pdb

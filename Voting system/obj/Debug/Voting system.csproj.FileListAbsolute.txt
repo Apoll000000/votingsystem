@@ -1,0 +1,73 @@
+C:\Users\Ryu\source\repos\Voting system\Voting system\bin\Debug\Voting system.exe.config
+C:\Users\Ryu\source\repos\Voting system\Voting system\bin\Debug\Voting system.exe
+C:\Users\Ryu\source\repos\Voting system\Voting system\bin\Debug\Voting system.pdb
+C:\Users\Ryu\source\repos\Voting system\Voting system\bin\Debug\ComponentFactory.Krypton.Docking.dll
+C:\Users\Ryu\source\repos\Voting system\Voting system\bin\Debug\ComponentFactory.Krypton.Navigator.dll
+C:\Users\Ryu\source\repos\Voting system\Voting system\bin\Debug\ComponentFactory.Krypton.Ribbon.dll
+C:\Users\Ryu\source\repos\Voting system\Voting system\bin\Debug\ComponentFactory.Krypton.Toolkit.dll
+C:\Users\Ryu\source\repos\Voting system\Voting system\bin\Debug\ComponentFactory.Krypton.Workspace.dll
+C:\Users\Ryu\source\repos\Voting system\Voting system\bin\Debug\MaterialSkin.dll
+C:\Users\Ryu\source\repos\Voting system\Voting system\bin\Debug\ComponentFactory.Krypton.Docking.pdb
+C:\Users\Ryu\source\repos\Voting system\Voting system\bin\Debug\ComponentFactory.Krypton.Navigator.pdb
+C:\Users\Ryu\source\repos\Voting system\Voting system\bin\Debug\ComponentFactory.Krypton.Ribbon.pdb
+C:\Users\Ryu\source\repos\Voting system\Voting system\bin\Debug\ComponentFactory.Krypton.Toolkit.pdb
+C:\Users\Ryu\source\repos\Voting system\Voting system\bin\Debug\ComponentFactory.Krypton.Workspace.pdb
+C:\Users\Ryu\source\repos\Voting system\Voting system\obj\Debug\Voting system.csproj.AssemblyReference.cache
+C:\Users\Ryu\source\repos\Voting system\Voting system\obj\Debug\Voting_system.Lyceum.resources
+C:\Users\Ryu\source\repos\Voting system\Voting system\obj\Debug\Voting_system.Properties.Resources.resources
+C:\Users\Ryu\source\repos\Voting system\Voting system\obj\Debug\Voting system.csproj.GenerateResource.cache
+C:\Users\Ryu\source\repos\Voting system\Voting system\obj\Debug\Voting system.csproj.CoreCompileInputs.cache
+C:\Users\Ryu\source\repos\Voting system\Voting system\obj\Debug\Voting system.csproj.CopyComplete
+C:\Users\Ryu\source\repos\Voting system\Voting system\obj\Debug\Voting system.exe
+C:\Users\Ryu\source\repos\Voting system\Voting system\obj\Debug\Voting system.pdb
+C:\Users\Ryu\source\repos\Voting system\Voting system\bin\Debug\AlphaBlendTextBox.dll
+C:\Users\Ryu\source\repos\Voting system\Voting system\bin\Debug\Bunifu.UI.WinForms.BunifuButton.dll
+C:\Users\Ryu\source\repos\Voting system\Voting system\bin\Debug\Bunifu.UI.WinForms.BunifuLabel.dll
+C:\Users\Ryu\source\repos\Voting system\Voting system\bin\Debug\Bunifu.UI.WinForms.BunifuTextbox.dll
+C:\Users\Ryu\source\repos\Voting system\Voting system\bin\Debug\Microsoft.Bcl.AsyncInterfaces.dll
+C:\Users\Ryu\source\repos\Voting system\Voting system\bin\Debug\Newtonsoft.Json.dll
+C:\Users\Ryu\source\repos\Voting system\Voting system\bin\Debug\RestSharp.dll
+C:\Users\Ryu\source\repos\Voting system\Voting system\bin\Debug\System.Buffers.dll
+C:\Users\Ryu\source\repos\Voting system\Voting system\bin\Debug\System.CodeDom.dll
+C:\Users\Ryu\source\repos\Voting system\Voting system\bin\Debug\System.Memory.dll
+C:\Users\Ryu\source\repos\Voting system\Voting system\bin\Debug\System.Numerics.Vectors.dll
+C:\Users\Ryu\source\repos\Voting system\Voting system\bin\Debug\System.Runtime.CompilerServices.Unsafe.dll
+C:\Users\Ryu\source\repos\Voting system\Voting system\bin\Debug\System.Text.Encodings.Web.dll
+C:\Users\Ryu\source\repos\Voting system\Voting system\bin\Debug\System.Text.Json.dll
+C:\Users\Ryu\source\repos\Voting system\Voting system\bin\Debug\System.Threading.Tasks.Extensions.dll
+C:\Users\Ryu\source\repos\Voting system\Voting system\bin\Debug\System.ValueTuple.dll
+C:\Users\Ryu\source\repos\Voting system\Voting system\bin\Debug\Bunifu.UI.WinForms.BunifuButton.xml
+C:\Users\Ryu\source\repos\Voting system\Voting system\bin\Debug\Bunifu.UI.WinForms.BunifuLabel.xml
+C:\Users\Ryu\source\repos\Voting system\Voting system\bin\Debug\Bunifu.UI.WinForms.BunifuTextbox.xml
+C:\Users\Ryu\source\repos\Voting system\Voting system\bin\Debug\Microsoft.Bcl.AsyncInterfaces.xml
+C:\Users\Ryu\source\repos\Voting system\Voting system\bin\Debug\Newtonsoft.Json.xml
+C:\Users\Ryu\source\repos\Voting system\Voting system\bin\Debug\RestSharp.xml
+C:\Users\Ryu\source\repos\Voting system\Voting system\bin\Debug\System.Buffers.xml
+C:\Users\Ryu\source\repos\Voting system\Voting system\bin\Debug\System.CodeDom.xml
+C:\Users\Ryu\source\repos\Voting system\Voting system\bin\Debug\System.Memory.xml
+C:\Users\Ryu\source\repos\Voting system\Voting system\bin\Debug\System.Numerics.Vectors.xml
+C:\Users\Ryu\source\repos\Voting system\Voting system\bin\Debug\System.Runtime.CompilerServices.Unsafe.xml
+C:\Users\Ryu\source\repos\Voting system\Voting system\bin\Debug\System.Text.Encodings.Web.xml
+C:\Users\Ryu\source\repos\Voting system\Voting system\bin\Debug\System.Text.Json.xml
+C:\Users\Ryu\source\repos\Voting system\Voting system\bin\Debug\System.Threading.Tasks.Extensions.xml
+C:\Users\Ryu\source\repos\Voting system\Voting system\bin\Debug\System.ValueTuple.xml
+C:\Users\Ryu\source\repos\Voting system\Voting system\bin\Debug\Bunifu_UI_v1.5.3.dll
+C:\Users\Ryu\source\repos\Voting system\Voting system\bin\Debug\Bunifu_UI_v1.5.3.xml
+C:\Users\Ryu\source\repos\Voting system\Voting system\obj\Debug\Voting system.exe.config
+C:\Users\Ryu\source\repos\Voting system\Voting system\bin\Debug\Bunifu.UI.WinForms.BunifuDropdown.dll
+C:\Users\Ryu\source\repos\Voting system\Voting system\bin\Debug\Bunifu.UI.WinForms.BunifuDropdown.xml
+C:\Users\Ryu\source\repos\Voting system\Voting system\obj\Debug\Voting_system.LNU.resources
+C:\Users\Ryu\source\repos\Voting system\Voting system\bin\Debug\Bunifu.UI.WinForm.BunifuShadowPanel.dll
+C:\Users\Ryu\source\repos\Voting system\Voting system\bin\Debug\Bunifu.UI.WinForm.BunifuShadowPanel.xml
+C:\Users\Ryu\source\repos\Voting system\Voting system\bin\Debug\Bunifu.UI.WinForms.BunifuDataGridView.dll
+C:\Users\Ryu\source\repos\Voting system\Voting system\bin\Debug\Bunifu.UI.WinForms.BunifuDataGridView.xml
+C:\Users\Ryu\source\repos\Voting system\Voting system\bin\Debug\Bunifu.UI.WinForms.BunifuPictureBox.dll
+C:\Users\Ryu\source\repos\Voting system\Voting system\bin\Debug\Bunifu.UI.WinForms.BunifuPictureBox.xml
+C:\Users\Ryu\source\repos\Voting system\Voting system\obj\Debug\Voting_system.Form3.resources
+C:\Users\Ryu\source\repos\Voting system\Voting system\obj\Debug\Voting_system.Form4.resources
+C:\Users\Ryu\source\repos\Voting system\Voting system\obj\Debug\Voting_system.Form5.resources
+C:\Users\Ryu\source\repos\Voting system\Voting system\obj\Debug\Voting_system.Form6.resources
+C:\Users\Ryu\source\repos\Voting system\Voting system\obj\Debug\Voting_system.Form7.resources
+C:\Users\Ryu\source\repos\Voting system\Voting system\obj\Debug\Voting_system.Form8.resources
+C:\Users\Ryu\source\repos\Voting system\Voting system\obj\Debug\Voting_system.Form10.resources
+C:\Users\Ryu\source\repos\Voting system\Voting system\obj\Debug\Voting_system.Form9.resources
