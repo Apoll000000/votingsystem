@@ -14,10 +14,15 @@ namespace Voting_system
     public partial class Form4 : KryptonForm
     {
         private int electionId;
-        public Form4(int electionId)
+        private string student_id;
+        public event EventHandler Confirmation;
+        public event EventHandler Back;
+
+        public Form4(int electionId, string student_id)
         {
             InitializeComponent();
             this.electionId = electionId;
+            this.student_id = student_id;
         }
 
         private void Form4_Load(object sender, EventArgs e)
@@ -27,24 +32,34 @@ namespace Voting_system
 
         private void bunifuButton1_Click(object sender, EventArgs e)
         {
-            Form3 form3 = new Form3(electionId);
+
+            Back?.Invoke(this, EventArgs.Empty);
+
+
+
+            //Form3 form3 = new Form3(electionId);
 
             // Show Form3
-            form3.Show();
+            // form3.Show();
 
             // Close the current form
-            this.Close();
+            // this.Close();
         }
 
         private void bunifuButton2_Click(object sender, EventArgs e)
         {
-            Form5 form5 = new Form5();
+
+            Confirmation?.Invoke(this, EventArgs.Empty);
+
+            //Form5 form5 = new Form5();
 
             // Show Form3
-            form5.Show();
+           // form5.Show();
 
             // Close the current form
-            this.Close();
+           // this.Close();
         }
+
+        
     }
 }

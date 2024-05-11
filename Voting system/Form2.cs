@@ -14,9 +14,11 @@ namespace Voting_system
 {
     public partial class LNU : KryptonForm
     {
-        public LNU()
+        private string student_id;
+        public LNU(string student_id)
         {
             InitializeComponent();
+            this.student_id = student_id;
             string mysqlCon = "server=127.0.0.1; user=root; database=db_votingsystem; password=";
             MySqlConnection mySqlConnection = new MySqlConnection(mysqlCon);
 
@@ -45,7 +47,7 @@ namespace Voting_system
             try
             {
                 mySqlConnection.Open();
-                string query = "SELECT * FROM tbl_elections";
+                string query = "SELECT * FROM tbl_elections WHERE elec_isactive = 1";
                 MySqlCommand cmd = new MySqlCommand(query, mySqlConnection);
                 MySqlDataAdapter adapter = new MySqlDataAdapter(cmd);
                 DataTable dataTable = new DataTable();
@@ -93,7 +95,7 @@ namespace Voting_system
                 // Retrieve the election ID from the selected row
                 int electionId = Convert.ToInt32(bunifuCustomDataGrid1.SelectedRows[0].Cells["Column4"].Value);
                 // Proceed to Form3 while passing the election ID
-                Form3 form3 = new Form3(electionId);
+                Form3 form3 = new Form3(electionId, student_id);
                 form3.Show();
                 this.Hide();
             }

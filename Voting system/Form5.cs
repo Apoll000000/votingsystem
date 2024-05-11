@@ -13,9 +13,12 @@ namespace Voting_system
 {
     public partial class Form5 : KryptonForm
     {
-        public Form5()
+        private string student_id;
+        public Form5(string student_id)
         {
             InitializeComponent();
+            this.student_id = student_id;
+
         }
 
         private void Form5_Load(object sender, EventArgs e)
@@ -25,7 +28,7 @@ namespace Voting_system
 
         private void bunifuButton2_Click(object sender, EventArgs e)
         {
-            LNU form2 = new LNU();
+            LNU form2 = new LNU(student_id);
 
             // Show Form3
             form2.Show();

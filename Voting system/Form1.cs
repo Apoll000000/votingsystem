@@ -53,7 +53,7 @@ namespace Voting_system
                 if (reader.Read())
                 {
                     // Match found, proceed to the next form
-                    LNU form2 = new LNU();
+                    LNU form2 = new LNU(student_id);
                     form2.Show();
                     this.Hide();
                 }
