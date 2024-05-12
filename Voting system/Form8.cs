@@ -110,5 +110,119 @@ namespace Voting_system
         {
 
         }
+
+        private void bunifuButton2_Click(object sender, EventArgs e)
+        {
+            if (bunifuCustomDataGrid1.SelectedRows.Count > 0)
+            {
+                // Retrieve the election ID from the selected row
+                int electionId = Convert.ToInt32(bunifuCustomDataGrid1.SelectedRows[0].Cells["Column4"].Value);
+                // Proceed to Form3 while passing the election ID
+                Form15 form15 = new Form15(electionId);
+                form15.Show();
+                this.Hide();
+            }
+            else
+            {
+                MessageBox.Show("No row selected.");
+            }
+        }
+
+        private void bunifuButton3_Click(object sender, EventArgs e)
+        {
+            if (bunifuCustomDataGrid1.SelectedRows.Count > 0)
+            {
+                // Retrieve the election ID from the selected row
+                int electionId = Convert.ToInt32(bunifuCustomDataGrid1.SelectedRows[0].Cells["Column4"].Value);
+
+                // Check if the election is already active in the database
+                string mysqlCon = "server=127.0.0.1; user=root; database=db_votingsystem; password=";
+                MySqlConnection mySqlConnection = new MySqlConnection(mysqlCon);
+
+                try
+                {
+                    mySqlConnection.Open();
+                    string queryCheckActive = "SELECT elec_isactive, is_tallied FROM tbl_elections WHERE elec_id = @electionId";
+                    MySqlCommand cmdCheckActive = new MySqlCommand(queryCheckActive, mySqlConnection);
+                    cmdCheckActive.Parameters.AddWithValue("@electionId", electionId);
+
+                    using (var reader = cmdCheckActive.ExecuteReader())
+                    {
+                        if (reader.Read())
+                        {
+                            int isActive = Convert.ToInt32(reader["elec_isactive"]);
+                            int isTallied = Convert.ToInt32(reader["is_tallied"]);
+
+                            if (isActive == 1)
+                            {
+                                MessageBox.Show("Election is already active.");
+                            }
+                            else if (isTallied == 1)
+                            {
+                                MessageBox.Show("Cannot activate elections that already have official results.");
+                            }
+                            else
+                            {
+                                // Update elec_isactive to 1
+                                string queryUpdateActive = "UPDATE tbl_elections SET elec_isactive = 1 WHERE elec_id = @electionId";
+                                MySqlCommand cmdUpdateActive = new MySqlCommand(queryUpdateActive, mySqlConnection);
+                                cmdUpdateActive.Parameters.AddWithValue("@electionId", electionId);
+                                int rowsAffected = cmdUpdateActive.ExecuteNonQuery();
+
+                                if (rowsAffected > 0)
+                                {
+                                    MessageBox.Show("Election Activated Successfully.");
+                                    RefreshForm();
+                                }
+                                else
+                                {
+                                    MessageBox.Show("Failed to activate election.");
+                                }
+                            }
+                        }
+                        else
+                        {
+                            MessageBox.Show("Election not found.");
+                        }
+                    }
+                }
+                catch (MySqlException ex)
+                {
+                    MessageBox.Show("MySQL Error: " + ex.Message);
+                }
+                finally
+                {
+                    mySqlConnection.Close();
+                }
+            }
+            else
+            {
+                MessageBox.Show("No row selected.");
+            }
+        }
+
+        private void RefreshForm()
+        {
+            Form8 form8 = new Form8();
+            form8.Show();
+            this.Close();
+        }
+
+        private void bunifuButton7_Click(object sender, EventArgs e)
+        {
+            if (bunifuCustomDataGrid1.SelectedRows.Count > 0)
+            {
+                // Retrieve the election ID from the selected row
+                int electionId = Convert.ToInt32(bunifuCustomDataGrid1.SelectedRows[0].Cells["Column4"].Value);
+                // Proceed to Form3 while passing the election ID
+                Form16 form16 = new Form16(electionId);
+                form16.Show();
+                this.Close();
+            }
+            else
+            {
+                MessageBox.Show("No row selected.");
+            }
+        }
     }
 }

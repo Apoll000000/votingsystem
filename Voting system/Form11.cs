@@ -96,9 +96,7 @@ namespace Voting_system
 
         private void ClearFields()
         {
-            bunifuTextBox2.Text = "";
             bunifuTextBox1.Text = "";
-            bunifuTextBox3.Text = "";
             bunifuTextBox4.Text = "";
             imageData = null;
         }
@@ -110,7 +108,14 @@ namespace Voting_system
 
         private void bunifuDropdown1_onItemSelected(object sender, EventArgs e)
         {
+            if (bunifuDropdown1.selectedIndex >= 0)
+            {
+                int selectedIndex = bunifuDropdown1.selectedIndex;
+                KeyValuePair<int, string> selectedElection = (KeyValuePair<int, string>)bunifuDropdown1.Items[selectedIndex];
+                int elecId = selectedElection.Key;
 
+                PopulatePositionsDropdown(elecId);
+            }
         }
 
         private void bunifuButton2_Click(object sender, EventArgs e)
@@ -142,31 +147,35 @@ namespace Voting_system
 
         private void bunifuButton1_Click(object sender, EventArgs e)
         {
-            if (!string.IsNullOrEmpty(bunifuTextBox2.Text) &&
+            if (bunifuDropdown2.selectedIndex >= 0 &&
                 !string.IsNullOrEmpty(bunifuTextBox1.Text) &&
-                !string.IsNullOrEmpty(bunifuTextBox3.Text) &&
+                bunifuDropdown3.selectedIndex >= 0 &&
                 imageData != null &&
                 bunifuDropdown1.selectedIndex >= 0) // Check if an item is selected in the BunifuDropdown
-            {
-                // Get the selected election ID from the BunifuDropdown
-                int selectedIndex = bunifuDropdown1.selectedIndex;
+                    {
+                        // Get the selected election ID from the BunifuDropdown
+                        int selectedIndex = bunifuDropdown1.selectedIndex;
 
-                // Get the selected item from the Items collection
-                KeyValuePair<int, string> selectedElection = (KeyValuePair<int, string>)bunifuDropdown1.Items[selectedIndex]; 
-                int elecId = selectedElection.Key;
+                        // Get the selected item from the Items collection
+                        KeyValuePair<int, string> selectedElection = (KeyValuePair<int, string>)bunifuDropdown1.Items[selectedIndex];
+                        int elecId = selectedElection.Key;
 
-                // Save voter details and image to database
-                SaveToDatabase(bunifuTextBox1.Text, bunifuTextBox2.Text, bunifuTextBox3.Text, imageData, elecId);
-                MessageBox.Show("Candidate saved successfully.");
-                ClearFields();
-                Form12 form12 = new Form12();
-                form12.Show();
-                this.Close();
-            }
-            else
-            {
-                MessageBox.Show("Please fill all fields, select an image, and choose an election.");
-            }
+                // Cast SelectedItem to string for bunifuDropdown2 and bunifuDropdown3
+                        string selectedPosition = bunifuDropdown2.selectedValue?.ToString();
+                        string selectedCourse = bunifuDropdown3.selectedValue?.ToString();
+
+                        // Save voter details and image to database
+                        SaveToDatabase(bunifuTextBox1.Text, selectedPosition, selectedCourse, imageData, elecId);
+                        MessageBox.Show("Candidate saved successfully.");
+                        ClearFields();
+                        Form12 form12 = new Form12();
+                        form12.Show();
+                        this.Close();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Please fill all fields, select an image, and choose an election.");
+                    }
         }
 
         private void bunifuButton3_Click(object sender, EventArgs e)
@@ -179,6 +188,55 @@ namespace Voting_system
                     imageData = File.ReadAllBytes(openFileDialog.FileName);
                     bunifuTextBox4.Text = "Image Selected";
                 }
+            }
+        }
+
+        private void bunifuDropdown2_onItemSelected(object sender, EventArgs e)
+        {
+
+        }
+
+        private void bunifuDropdown3_onItemSelected(object sender, EventArgs e)
+        {
+
+        }
+
+        private void PopulatePositionsDropdown(int electionId)
+        {
+            string connectionString = "server=127.0.0.1; user=root; database=db_votingsystem; password=";
+            MySqlConnection mySqlConnection = new MySqlConnection(connectionString);
+
+            try
+            {
+                // Open database connection
+                mySqlConnection.Open();
+
+                // Create SQL command to fetch positions for the selected election
+                string query = "SELECT position_name FROM tbl_positionsforelection" + electionId + " WHERE elec_id = @ElectionId";
+                MySqlCommand command = new MySqlCommand(query, mySqlConnection);
+                command.Parameters.AddWithValue("@ElectionId", electionId);
+
+                // Execute SQL command and fetch data
+                MySqlDataReader reader = command.ExecuteReader();
+
+                // Clear existing items in the dropdown
+                bunifuDropdown2.Items.Clear();
+
+                // Add fetched positions to the dropdown
+                while (reader.Read())
+                {
+                    string positionName = reader["position_name"].ToString();
+                    bunifuDropdown2.Items.Add(positionName);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message);
+            }
+            finally
+            {
+                // Close database connection
+                mySqlConnection.Close();
             }
         }
     }

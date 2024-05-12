@@ -83,7 +83,6 @@ namespace Voting_system
         {
             bunifuTextBox2.Text = "";
             bunifuTextBox1.Text = "";
-            bunifuTextBox3.Text = "";
             bunifuTextBox4.Text = "";
             imageData = null;
         }
@@ -111,10 +110,11 @@ namespace Voting_system
 
         private void bunifuButton1_Click_1(object sender, EventArgs e)
         {
-            if (!string.IsNullOrEmpty(bunifuTextBox2.Text) && !string.IsNullOrEmpty(bunifuTextBox1.Text) && !string.IsNullOrEmpty(bunifuTextBox3.Text) && imageData != null)
+            if (!string.IsNullOrEmpty(bunifuTextBox2.Text) && !string.IsNullOrEmpty(bunifuTextBox1.Text) && bunifuDropdown3.selectedIndex >= 0 && imageData != null)
             {
+                string selectedCourse = bunifuDropdown3.selectedValue?.ToString();
                 // Save voter details and image to database
-                SaveToDatabase(bunifuTextBox2.Text, bunifuTextBox1.Text, bunifuTextBox3.Text, imageData);
+                SaveToDatabase(bunifuTextBox2.Text, bunifuTextBox1.Text, selectedCourse, imageData);
                 MessageBox.Show("Voter saved successfully.");
                 ClearFields();
                 Form10 form10 = new Form10();
@@ -125,6 +125,11 @@ namespace Voting_system
             {
                 MessageBox.Show("Please fill all fields and select an image.");
             }
+        }
+
+        private void bunifuDropdown3_onItemSelected(object sender, EventArgs e)
+        {
+
         }
     }
 }

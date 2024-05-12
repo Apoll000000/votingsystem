@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using ComponentFactory.Krypton.Toolkit;
 using MySql.Data.MySqlClient;
+using System.IO;
 
 namespace Voting_system
 {
@@ -28,6 +29,7 @@ namespace Voting_system
 
             ReadData();
             ReadVoting();
+            ViewData();
 
 
             try
@@ -45,7 +47,83 @@ namespace Voting_system
             }
         }
 
-        
+        private void ViewData()
+        {
+            string mysqlCon = "server=127.0.0.1; user=root; database=db_votingsystem; password=";
+            MySqlConnection mySqlConnection = new MySqlConnection(mysqlCon);
+
+            try
+            {
+                mySqlConnection.Open();
+                string query = "SELECT elec_name FROM tbl_elections WHERE elec_id = @electionId";
+                MySqlCommand cmd = new MySqlCommand(query, mySqlConnection);
+                cmd.Parameters.AddWithValue("@electionId", electionId);
+                MySqlDataReader reader = cmd.ExecuteReader();
+
+                while (reader.Read())
+                {
+                    string electionName = reader.GetString("elec_name");
+                    bunifuLabel1.Text = electionName;
+
+                }
+            }
+            catch (MySqlException ex)
+            {
+                MessageBox.Show("MySQL Error: " + ex.Message);
+            }
+            finally
+            {
+                mySqlConnection.Close();
+            }
+        }
+
+        public class Candidate
+        {
+            public string Name { get; set; }
+            public string Course { get; set; }
+            public byte[] Picture { get; set; } // Store image data as byte array
+        }
+
+        private List<Candidate> GetCandidatesForIndividual(string positionName)
+        {
+            List<Candidate> candidatesinfo = new List<Candidate>();
+
+            string mysqlCon = "server=127.0.0.1; user=root; database=db_votingsystem; password=";
+            MySqlConnection mySqlConnection = new MySqlConnection(mysqlCon);
+
+            try
+            {
+                mySqlConnection.Open();
+                string queryCandidates = "SELECT candidate_name, candidate_course, candidate_picture FROM tbl_candidates WHERE elec_id = @electionId AND candidate_position = @position";
+                MySqlCommand cmdCandidates = new MySqlCommand(queryCandidates, mySqlConnection);
+                cmdCandidates.Parameters.AddWithValue("@electionId", electionId);
+                cmdCandidates.Parameters.AddWithValue("@position", positionName);
+                MySqlDataReader readerCandidates = cmdCandidates.ExecuteReader();
+
+                while (readerCandidates.Read())
+                {
+                    Candidate candidateinfo = new Candidate();
+                    candidateinfo.Name = readerCandidates.GetString("candidate_name");
+                    candidateinfo.Course = readerCandidates.GetString("candidate_course");
+                    candidateinfo.Picture = (byte[])readerCandidates["candidate_picture"]; // Retrieve image data as byte array
+                    candidatesinfo.Add(candidateinfo);
+                }
+            }
+            catch (MySqlException ex)
+            {
+                MessageBox.Show("MySQL Error: " + ex.Message);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message);
+            }
+            finally
+            {
+                mySqlConnection.Close();
+            }
+
+            return candidatesinfo;
+        }
 
         private List<string> GetCandidatesForPosition(string positionName)
         {
@@ -84,6 +162,7 @@ namespace Voting_system
 
             return candidates;
         }
+
 
         private void ReadData()
         {
@@ -128,25 +207,43 @@ namespace Voting_system
                     positionContentPanel.Controls.Add(positionLabel);
 
 
-                    List<string> candidates = GetCandidatesForPosition(positionName);
+                    List<Candidate> candidatesinfo = GetCandidatesForIndividual(positionName);
 
-                    foreach (string candidateName in candidates)
+                    foreach (Candidate candidateinfo in candidatesinfo)
                     {
                         // Create a new Panel for each candidate
                         Panel candidatePanel = new Panel();
                         candidatePanel.Width = 196; // Set the width (adjust as needed)
                         candidatePanel.Height = 222; // Set the height (adjust as needed)
-                        candidatePanel.BackColor = Color.LightGray; // Set background color
+                        candidatePanel.BackColor = Color.Maroon; // Set background color
 
                         // Create a new Label for the candidate name
                         Label candidateLabel = new Label();
-                        candidateLabel.Text = candidateName;
-                        candidateLabel.Font = new Font("Arial", 9); // Set font size
+                        candidateLabel.Text = candidateinfo.Name;
+                        candidateLabel.Font = new Font("Impact", 11); // Set font size
                         candidateLabel.TextAlign = ContentAlignment.MiddleCenter; // Center text alignment
-                        candidateLabel.Dock = DockStyle.Fill; // Dock the label to fill the panel
+                        candidateLabel.Dock = DockStyle.Bottom; // Dock the label to the top of the panel
 
                         // Add the Label to the Panel
                         candidatePanel.Controls.Add(candidateLabel);
+
+                        // Convert byte array to image
+                        Image image = ByteArrayToImage(candidateinfo.Picture);
+
+                        // Add PictureBox for candidate picture
+                        PictureBox pictureBox = new PictureBox();
+                        pictureBox.Image = image;
+                        pictureBox.SizeMode = PictureBoxSizeMode.StretchImage;
+                        pictureBox.Dock = DockStyle.Fill;
+                        candidatePanel.Controls.Add(pictureBox);
+
+                        // Add Label for candidate course
+                        Label courseLabel = new Label();
+                        courseLabel.Text = candidateinfo.Course;
+                        courseLabel.Font = new Font("Tahoma", 9); // Set font size
+                        courseLabel.TextAlign = ContentAlignment.MiddleCenter; // Center text alignment
+                        courseLabel.Dock = DockStyle.Top; // Dock the label to the bottom of the panel
+                        candidatePanel.Controls.Add(courseLabel);
 
                         // Add the Panel for the candidate to the FlowLayoutPanel
                         positionPanel.Controls.Add(candidatePanel);
@@ -168,6 +265,15 @@ namespace Voting_system
             finally
             {
                 mySqlConnection.Close();
+            }
+        }
+
+        public Image ByteArrayToImage(byte[] byteArrayIn)
+        {
+            using (MemoryStream ms = new MemoryStream(byteArrayIn))
+            {
+                Image image = Image.FromStream(ms);
+                return image;
             }
         }
 
@@ -455,6 +561,11 @@ namespace Voting_system
             Form5 form5 = new Form5(student_id);
             form5.Show();
             this.Close();
+        }
+
+        private void bunifuLabel1_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

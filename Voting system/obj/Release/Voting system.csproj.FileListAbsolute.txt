@@ -130,3 +130,6 @@ C:\Users\Ryu\source\repos\Voting system\Voting system\obj\Release\Voting_system.
 C:\Users\Ryu\source\repos\Voting system\Voting system\obj\Release\Voting_system.Form16.resources
 C:\Users\Ryu\source\repos\Voting system\Voting system\obj\Release\Voting_system.Form15.resources
 C:\Users\Ryu\source\repos\Voting system\Voting system\obj\Release\Voting_system.Form17.resources
+C:\Users\Ryu\source\repos\Voting system\Voting system\obj\Release\Voting_system.Form18.resources
+C:\Users\Ryu\source\repos\Voting system\Voting system\obj\Release\Voting_system.Form20.resources
+C:\Users\Ryu\source\repos\Voting system\Voting system\obj\Release\Voting_system.Form19.resources

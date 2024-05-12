@@ -23,6 +23,7 @@ namespace Voting_system
             MySqlConnection mySqlConnection = new MySqlConnection(mysqlCon);
 
             ReadData();
+            ViewData();
 
             try
             {
@@ -32,6 +33,36 @@ namespace Voting_system
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
+            }
+            finally
+            {
+                mySqlConnection.Close();
+            }
+        }
+
+        private void ViewData()
+        {
+            string mysqlCon = "server=127.0.0.1; user=root; database=db_votingsystem; password=";
+            MySqlConnection mySqlConnection = new MySqlConnection(mysqlCon);
+
+            try
+            {
+                mySqlConnection.Open();
+                string query = "SELECT student_name FROM tbl_accounts WHERE student_id = @studentId";
+                MySqlCommand cmd = new MySqlCommand(query, mySqlConnection);
+                cmd.Parameters.AddWithValue("@studentId", student_id);
+                MySqlDataReader reader = cmd.ExecuteReader();
+
+                while (reader.Read())
+                {
+                    string studentName = reader.GetString("student_name");
+                    bunifuLabel3.Text = studentName;
+
+                }
+            }
+            catch (MySqlException ex)
+            {
+                MessageBox.Show("MySQL Error: " + ex.Message);
             }
             finally
             {
@@ -115,6 +146,18 @@ namespace Voting_system
         private void bunifuCustomDataGrid1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
+        }
+
+        private void bunifuLabel3_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void bunifuButton3_Click(object sender, EventArgs e)
+        {
+            Form19 form19 = new Form19(student_id);
+            form19.Show();
+            this.Close();
         }
     }
 }
